@@ -32,13 +32,12 @@ public class MainAsyncTask extends AsyncTask<String, Integer, Integer> {
 		try {
 			System.out.println("【Debug Client】request:" + params);
 			post.setEntity(new UrlEncodedFormEntity(params, "utf-8"));
-		//	res = httpClient.execute(post);
+			res = httpClient.execute(post);
 			System.out.println("【Debug Client】responce:" + res);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 
-//		return Integer.valueOf(res.getStatusLine().getStatusCode());
-		return null;
+		return Integer.valueOf(res.getStatusLine().getStatusCode());
 	}
 }
