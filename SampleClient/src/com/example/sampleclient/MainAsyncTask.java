@@ -19,16 +19,15 @@ public class MainAsyncTask extends AsyncTask<String, Integer, Integer> {
 
 	@Override
 	protected Integer doInBackground(String... contents) {
-		String url="http://localhost:8080/SampleController/init";
+		String url="http://10.0.2.2:8080/server/index.html";
 		HttpClient httpClient = new DefaultHttpClient();
 		HttpPost post = new HttpPost(url);
 
-		ArrayList <NameValuePair> params = new ArrayList <NameValuePair>();
+		ArrayList <NameValuePair> params = new ArrayList <>();
 		params.add(new BasicNameValuePair("param1", "a"));
 		params.add(new BasicNameValuePair("param2", "b"));
 
 		HttpResponse res = null;
-
 		try {
 			System.out.println("【Debug Client】request:" + params);
 			post.setEntity(new UrlEncodedFormEntity(params, "utf-8"));
